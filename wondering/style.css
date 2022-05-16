@@ -16,7 +16,7 @@ html { font-family: 'Inter', sans-serif; }
 }
 
 body{
-  background-color: #A449FF;
+  background-color: cyan;
   cursor: pointer;
   overflow: hidden;
 }
@@ -55,16 +55,7 @@ body{
   font-family: freight-display-pro, serif;
   font-weight: 700; 
   font-style: italic;
-}
 
-.grid-container{
-  width: 100vw;
-  height: 10vh;
-  position: fixed;
-  bottom: 500px;
-  left: 0px;
-  z-index: 2;
-  text-align: center;
 }
 
 .time{
@@ -102,58 +93,23 @@ body{
   color: rgb(0, 0, 0);
 }
 
-
 @keyframes glide {
 0% {
-  margin-bottom: 0px;
-  transform: rotateY(0deg);
+  transform: translateX(-100px) translateY(-50px);}
+100%{transform: translateX(100px) translateY(50px);}
 }
-
-100%{
-  margin-bottom: 100vh;
-  transform: rotateY(90deg);
-}
-}
-
-@keyframes glide2 {
-  0% {
-    transform: translateY(0px);}
-  100%{
-    transform: translateY(-140vh ) rotateY(90deg) rotateZ(90deg) rotateX(90deg);
-  }
-  }
-
-  @keyframes glide3 {
-    0% {
-      transform: translateY(-140vh ) rotateY(90deg) rotateZ(90deg) rotateX(90deg);}
-    100%{
-      transform: translateY(0px) rotateY(0deg) rotateZ(0deg) rotateX(0deg);
-    }
-    }
-
 
 .word{
-  /* padding-left: 22px;
-  padding-right: 22px; */
+  padding-left: 22px;
+  padding-right: 22px;
   padding-top: 7px;
   padding-bottom: 7px;
   border: solid 2px black;
   background-color: white;
-  width: 100px;
-  text-align: center;
   cursor: pointer;
-  display: inline-block;
-  margin: auto;
-  margin-bottom: 3px;
-  /* animation-fill-mode: forwards;
-  -webkit-animation-fill-mode: forwards; */
-  animation-timing-function: ease-in;
+  animation-name: glide;
+  animation-direction: alternate;
   animation-iteration-count: infinite;
-  
- 
-  /* animation-name: glide; */
-  /* animation-direction: alternate;
-  animation-iteration-count: infinite; */
 
 }
 
@@ -162,7 +118,7 @@ body{
 }
 
 .word:hover{
-  background-color: #f10852;
+  background-color: rgb(230, 43, 43);
   color: white;
 }
 
@@ -175,13 +131,6 @@ body{
   width: 125px;
   display: flex;
   justify-content: space-between;
-}
-
-
-
-.new{
-  background: #3B7AF5;
-  color: white;
 }
 
 #circle1 {
@@ -205,13 +154,12 @@ body{
 #circle3 {
   width: 30px;
   height: 30px;
-  background: #f10852;
+  background: #E62B1E;
   border-radius: 50%;
   border: solid 2px black;
   cursor: pointer;
 }
   
-
 
 
 .wondering{
@@ -226,16 +174,12 @@ body{
 }
 
 .wondercontainer{
-  background-color: #A449FF;
+  background-color: rgb(73, 255, 255);
   height: 100vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  position: fixed;
-  top: 0px;
-  left: 0px;
 }
 
 .camera{

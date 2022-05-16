@@ -6,24 +6,11 @@ let song;
 let particles = [];
 var newparticles = [];
 var strcounter = 0;
-var strarray = [
-  "All", "forms", "must", "be", "submitted",
-  "This", "testing", "is", "required",
-  "submit", "a", "form",
-  "please", "email", "me", "back",
-  "your", "schedule", "is", "finalized",
-  "complete", "this", "survey",
-  "These", "will", "be", "updated",
-  "you", "are", "registered", "appropriately",
-  "will", "be", "updated",
-  "let", "me", "know",
-  "must", "be", "submitted",
-  "fill", "out", "the", "withdrawal", "form",
-  "have", "the", "poster"]
+var strarray = ["All", "forms", "must", "be", "submitted", "thoughtfully"]
+var advb = ["urgently, quietly", "beautifully", "dilligently", "courageously" ,"tenderly", "tensely", "hopelessly", "correctly", "happily", "immediately", "instantly", "intensely", "daily", "victoriously", "smoothly", "kindly", "gracefully", "furiously", "generously", "faithfully", "eventually", "fondly", "helpfully", "repeatedly", "truthfully", "regularly", "voluntarily", "willfully", "yearly", "verbally", "suddenly", "swiftly", "openly", "kindly", "electronically", "physically", "energetically", "calmly", "always", "safely", "politelly"]
 var currentstring = strarray[0]
 var chord;
 var synth;
-
 function randomNumber(min, max) { 
   return Math.floor(Math.random() * (max - min) + min);
 }
@@ -145,6 +132,8 @@ function draw() {
 }
 
 function mousePressed() {
+  var adverb = advb[randomNumber(0, advb.length)]
+  strarray.splice(5, 1, adverb)
 
   for (x=0; x<2; x++){
     var amnt = randomNumber(1,3)
