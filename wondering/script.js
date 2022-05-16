@@ -68,21 +68,142 @@ const synth = new Tone.PolySynth({
 
 }).toDestination();
 
+var windowx= $(window).width()
+var windowy =  $( window ).height()
 
     for (x=0;x<phrase[0].verb.length;x++){
-        xwordpos.push(randomNumber(0,$( window ).width()))
-        ywordpos.push(randomNumber(30,$( window ).height()))
-        console.log(xwordpos[x], ywordpos[x])
+        xwordpos.push(randomNumber((windowx/2) - 200, (windowx/2) + 200))
+        ywordpos.push(randomNumber((windowy/2) - 200, (windowy/2) + 200))
     }
 
-    for (x=0;x<phrase[0].verb.length;x++){
+    for (x=0;x<phrase[0].question.length;x++){
+        if (x%2 == 0){
+            $(".grid-container").append(
+                `<div class="word question new" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide; animation-duration: ${randomNumber(10,20)}s;">
+                ${phrase[0].question[x]}
+                </div>`)
+        }
 
-        $(".grid-container").append(
-            `<div class="word" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-duration: ${randomNumber(10,20)}s;">
-            ${phrase[0].verb[x]}
-            </div>`)
-        
+        else{
+            $(".grid-container").append(
+                `<div class="word question new" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide2; animation-duration: ${randomNumber(10,20)}s;">
+                ${phrase[0].question[x]}
+                </div>`)
+        }
+    
     }
+
+    $("body").on("click", ".question", function(){
+        $(".grid-container").children().removeClass("new")
+        var arraylength = ywordpos.length
+        for (x= arraylength; x< arraylength + phrase[0].pronoun.length;x++){
+            xwordpos.push(randomNumber((windowx/2) - 400, (windowx/2) + 400))
+            ywordpos.push(randomNumber((windowy/2) - 400, (windowy/2) + 400))
+        }
+    
+        for (x= arraylength; x< arraylength + phrase[0].pronoun.length;x++){
+            var wordspot = x - arraylength
+
+            if(x%2==0){
+                $(".grid-container").append(
+                    `<div class="word new pronoun" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].pronoun[wordspot]}
+                    </div>`)
+            }
+
+            else{
+                $(".grid-container").append(
+                    `<div class="word new pronoun" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide2; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].pronoun[wordspot]}
+                    </div>`)
+            }
+            
+        }
+    })
+
+    $('body').on('click', '.pronoun', function () { 
+        $(".grid-container").children().removeClass("new")
+        var arraylength = ywordpos.length
+        for (x= arraylength; x< arraylength + phrase[0].modal.length;x++){
+            xwordpos.push(randomNumber((windowx/2) - 600, (windowx/2) + 600))
+            ywordpos.push(randomNumber((windowy/2) - 600, (windowy/2) + 600))
+        }
+    
+        for (x= arraylength; x< arraylength + phrase[0].modal.length;x++){
+            var wordspot = x - arraylength
+
+            if(x%2==0){
+                $(".grid-container").append(
+                    `<div class="word new modal" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].modal[wordspot]}
+                    </div>`)
+            }
+
+            else{
+                $(".grid-container").append(
+                    `<div class="word new modal" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide2; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].modal[wordspot]}
+                    </div>`)
+            }
+            
+        }
+    });
+
+    $('body').on('click', '.modal', function () { 
+        $(".grid-container").children().removeClass("new")
+        var arraylength = ywordpos.length
+        for (x= arraylength; x< arraylength + phrase[0].verb.length;x++){
+            xwordpos.push(randomNumber(0, windowx))
+            ywordpos.push(randomNumber(0,windowy))
+        }
+    
+        for (x= arraylength; x< arraylength + phrase[0].verb.length;x++){
+            var wordspot = x - arraylength
+
+            if(x%2==0){
+                $(".grid-container").append(
+                    `<div class="word new verb" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].verb[wordspot]}
+                    </div>`)
+            }
+
+            else{
+                $(".grid-container").append(
+                    `<div class="word new verb" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide2; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].verb[wordspot]}
+                    </div>`)
+            }
+            
+        }
+    });
+
+    $('body').on('click', '.verb', function () { 
+        $(".grid-container").children().removeClass("new")
+        var arraylength = ywordpos.length
+        for (x= arraylength; x< arraylength + phrase[0].question.length;x++){
+            xwordpos.push(randomNumber((windowx/2) - 200, (windowx/2) + 200))
+            ywordpos.push(randomNumber((windowy/2) - 200, (windowy/2) + 200))
+        }
+    
+        for (x= arraylength; x< arraylength + phrase[0].question.length;x++){
+            var wordspot = x - arraylength
+
+            if(x%2==0){
+                $(".grid-container").append(
+                    `<div class="word new question" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].question[wordspot]}
+                    </div>`)
+            }
+
+            else{
+                $(".grid-container").append(
+                    `<div class="word new question" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide2; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].question[wordspot]}
+                    </div>`)
+            }
+            
+        }
+    });
 
     // $(".word").draggable()
 
@@ -114,15 +235,14 @@ const synth = new Tone.PolySynth({
         
     })
 
-    $(".word").click(function(){
+    $("body").on("click", ".word", function(){
+        console.log("click")
         let chord = Tone.Frequency("G4").harmonize([0,2,4,5,7,9,11,12]);
         clickindex = clickindex + 1
         if ($(this).hasClass("on")){
             $(this).removeClass("on")
             $(this).css({
                 'z-index': `${clickindex}`,
-                "background-color": "white",
-                "color":"black",
                 "animation-duration": `${randomNumber(10,20)}s`,
                 "animation-play-state": "running"
             });
@@ -135,38 +255,44 @@ const synth = new Tone.PolySynth({
             else{
                 chordcount = chordcount + 1
             }
-            console.log(chord)
+           
             synth.triggerAttackRelease(chord[randomNumber(0,7)], "2n");
             $(this).addClass("on")
-            if (colorcounter == 1){
-                $(this).css({
-                    'z-index': `${clickindex}`,
-                    "background-color": `${colorarray[0]}`,
-                    "color":"white",
-                    "animation-play-state": "paused"
-                });
-            }
+            // if (colorcounter == 1){
+            //     $(this).css({
+            //         'z-index': `${clickindex}`,
+            //         "background-color": `${colorarray[0]}`,
+            //         "color":"white",
+            //         "animation-play-state": "paused"
+            //     });
+            // }
 
-            if (colorcounter == 2){
-                $(this).css({
-                    'z-index': `${clickindex}`,
-                    "background-color": `${colorarray[1]}`,
-                    "color":"white",
-                    "animation-play-state": "paused"
-                });
-            }
+            // if (colorcounter == 2){
+            //     $(this).css({
+            //         'z-index': `${clickindex}`,
+            //         "background-color": `${colorarray[1]}`,
+            //         "color":"white",
+            //         "animation-play-state": "paused"
+            //     });
+            // }
 
-            if (colorcounter == 3){
-                $(this).css({
-                    'z-index': `${clickindex}`,
-                    "background-color": `${colorarray[2]}`,
-                    "color":"white",
-                    "animation-play-state": "paused"
-                });
-            }     
-
+            // if (colorcounter == 3){
+            //     $(this).css({
+            //         'z-index': `${clickindex}`,
+            //         "background-color": `${colorarray[2]}`,
+            //         "color":"white",
+            //         "animation-play-state": "paused"
+            //     });
+            // }    
+            $(this).css({
+                'z-index': `${clickindex}`,
+                "background-color": "#f10852",
+                "color":"white",
+                "animation-play-state": "paused"
+            }); 
         }   
-    })
+      });
+
 
     $(".word").mousedown(function(){
         clickindex = clickindex + 1
@@ -186,6 +312,13 @@ const synth = new Tone.PolySynth({
                 $(this).remove()
             }
         });
+
+        $(".word").css({
+            "background-color":"white",
+            "color":"black",
+
+        })
+
     });
 
     setUpDownloadPageAsImage();
@@ -193,7 +326,6 @@ const synth = new Tone.PolySynth({
     function setUpDownloadPageAsImage() {
     document.getElementById("camera").addEventListener("click", function() {
         html2canvas(document.body).then(function(canvas) {
-        console.log(canvas);
         simulateDownloadImageClick(canvas.toDataURL(), 'wondering.png');
         });
     });
