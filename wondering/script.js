@@ -258,32 +258,7 @@ var windowy =  $( window ).height()
            
             synth.triggerAttackRelease(chord[randomNumber(0,7)], "2n");
             $(this).addClass("on")
-            // if (colorcounter == 1){
-            //     $(this).css({
-            //         'z-index': `${clickindex}`,
-            //         "background-color": `${colorarray[0]}`,
-            //         "color":"white",
-            //         "animation-play-state": "paused"
-            //     });
-            // }
-
-            // if (colorcounter == 2){
-            //     $(this).css({
-            //         'z-index': `${clickindex}`,
-            //         "background-color": `${colorarray[1]}`,
-            //         "color":"white",
-            //         "animation-play-state": "paused"
-            //     });
-            // }
-
-            // if (colorcounter == 3){
-            //     $(this).css({
-            //         'z-index': `${clickindex}`,
-            //         "background-color": `${colorarray[2]}`,
-            //         "color":"white",
-            //         "animation-play-state": "paused"
-            //     });
-            // }    
+ 
             $(this).css({
                 'z-index': `${clickindex}`,
                 "background-color": "#f10852",
