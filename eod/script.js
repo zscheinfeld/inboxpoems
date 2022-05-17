@@ -163,31 +163,43 @@ function mousePressed() {
     newparticles.splice(0,25);
   }, "10000")
 
-  
-
-
-
-
-
-
-  // for (let i = 0; i < 30; i++) {
-  //   newparticles.push(new Particle(mouseX, mouseY, 0, 100,200, 100));
-  // }
-
-  // for (let particle of newparticles) {
-  //   let gravity = createVector(0, 0);
-  //   particle.applyForce(gravity);
-  //   particle.update();
-  //   particle.show();
-  // }
-
-  // for (let i = newparticles.length - 1; i >= 0; i--) {
-  //   if (newparticles[i].finished()) {
-  //     newparticles.splice(i, 1);
-  //   }
-  // }
-  
 }
+
+setInterval(() => {
+
+  var adverb = advb[randomNumber(0, advb.length)]
+  strarray.splice(5, 1, adverb)
+
+  for (x=0; x<2; x++){
+    var amnt = randomNumber(1,3)
+    synth.triggerAttackRelease(chord[randomNumber(0,7)], amnt)
+  }
+  
+  if(strcounter<strarray.length-1){
+    strcounter = strcounter + 1
+  }
+
+  else{
+    strcounter = 0
+  }
+
+  
+
+  console.log("pressed")
+  console.log(particles)
+  for (let particle of particles) {
+    newparticles.push(particle)
+  }
+  setTimeout(() => {
+    newparticles.splice(0,25);
+  }, "5000")
+
+  setTimeout(() => {
+    newparticles.splice(0,25);
+  }, "10000")
+  
+}, "5000")
+
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
