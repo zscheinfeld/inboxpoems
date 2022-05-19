@@ -61,18 +61,18 @@ class Particle {
       fill(255,255,255, this.lifetime);
       rect(this.pos.x, this.pos.y, 100, 25)
       textAlign(CENTER, CENTER);
-      textSize(16);
+      textSize(18);
       fill(0,0,0, this.lifetime);
-      text(this.text, this.pos.x, this.pos.y)
+      text(this.text, this.pos.x, this.pos.y-2)
     }
 
     shownew() {
       fill(255,255,255);
       rect(this.pos.x, this.pos.y, 100, 25)
       textAlign(CENTER, CENTER);
-      textSize(16);
+      textSize(18);
       fill(0,0,0);
-      text(this.text, this.pos.x, this.pos.y)
+      text(this.text, this.pos.x, this.pos.y-2)
     }
   }
   

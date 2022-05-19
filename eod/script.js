@@ -16,7 +16,8 @@ function randomNumber(min, max) {
 }
 
 function preload() {
-  document.getElementById("button").onclick=async ()=>{
+  myFont = loadFont('/inboxpoems/type.otf');
+  document.getElementById("mute").onclick=async ()=>{
       await Tone.start()
       console.log('audio is ready')
 };
@@ -83,6 +84,10 @@ function setup() {
   mycanvas.position(0, 0);
   mycanvas.parent("canv");
   background(255, 0, 0);
+  textFont(myFont);
+  noCursor();
+  
+  
 }
 
 function draw() {
@@ -92,13 +97,13 @@ function draw() {
   var xmiddle = windowWidth/2;
   var ymiddle = windowHeight/2;
   // purple: background-color: #A449FF; 
-  background(255,73,139);
+  background(164, 73, 255);
   fill(255);
   rect(windowWidth/2, windowHeight/2, 200, 50)
         textAlign(CENTER, CENTER);
         textSize(64);
         fill(0);
-        text("end of day", windowWidth/2, windowHeight/2); 
+        text("end of day", windowWidth/2, (windowHeight/2) - 10); 
   let targetX = mouseX;
   let dx = targetX - x;
   x += dx * easing;
@@ -205,3 +210,31 @@ setInterval(() => {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+
+
+
+$(document).ready(function(){
+  var mutecounter = 0
+  $("#mute").click(function(){
+      // $(".menuitem").attr("src", "icon/purple/archive.png")
+      if (mutecounter%2 == 0){
+          $("#purpleicon").attr("src", "/inboxpoems/icon/blue/mute.png");
+          synth.volume.value = -8;
+      }
+
+      else {
+          $("#purpleicon").attr("src", "/inboxpoems/icon/blue/sound.png");
+          // vol.mute = false
+          synth.volume.value = -100;
+      }
+      mutecounter = mutecounter + 1
+    });
+
+    $("#trash").click(function(){
+      var newparticles = [];
+   })
+   
+   $("#archive").click(function(){
+     saveCanvas('End of Day', 'jpg');
+   })
+});
