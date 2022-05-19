@@ -74,5 +74,7 @@ class Particle {
       fill(0,0,0);
       text(this.text, this.pos.x, this.pos.y-2)
     }
+
+
   }
   

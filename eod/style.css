@@ -237,6 +237,7 @@ a{
   display: flex;
   padding-left: 7px;
   opacity: 100%;
+  /* cursor: pointer !important; */
 }
 
 .rightfooter{
@@ -244,6 +245,7 @@ a{
   display: flex;
   padding-right: 7px;
   justify-content: right;
+  /* cursor: pointer !important; */
 }
 
 .menuitem{
@@ -251,7 +253,7 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-
+  cursor: default !important;
 }
 
 .trashitem{
@@ -259,18 +261,21 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: default !important;
 }
 
 .trashitem img{
   height: 35px;
+  cursor: default !important;
   
 }
 
 .menuitem img{
  height: 30px;
  width: auto;
+ cursor: default !important;
 }
 
-.p5Canvas{
+/* .p5Canvas{
   cursor: none;
-}
+} */

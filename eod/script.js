@@ -3,7 +3,7 @@ let y = 1;
 let easing = 0.05;
 // sound dependent particle system
 let song;
-let particles = [];
+var particles = [];
 var newparticles = [];
 var strcounter = 0;
 var strarray = ["All", "forms", "must", "be", "submitted", "thoughtfully"]
@@ -16,7 +16,8 @@ function randomNumber(min, max) {
 }
 
 function preload() {
-  myFont = loadFont('/inboxpoems/type.otf');
+  // myFont = loadFont('/inboxpoems/type.otf');
+  myFont = loadFont('/type.otf');
   document.getElementById("mute").onclick=async ()=>{
       await Tone.start()
       console.log('audio is ready')
@@ -218,12 +219,12 @@ $(document).ready(function(){
   $("#mute").click(function(){
       // $(".menuitem").attr("src", "icon/purple/archive.png")
       if (mutecounter%2 == 0){
-          $("#purpleicon").attr("src", "/inboxpoems/icon/blue/mute.png");
+          $("#purpleicon").attr("src", "/inboxpoems/icon/purple/mute.png");
           synth.volume.value = -8;
       }
 
       else {
-          $("#purpleicon").attr("src", "/inboxpoems/icon/blue/sound.png");
+          $("#purpleicon").attr("src", "/inboxpoems/icon/purple/sound.png");
           // vol.mute = false
           synth.volume.value = -100;
       }
@@ -231,7 +232,10 @@ $(document).ready(function(){
     });
 
     $("#trash").click(function(){
-      var newparticles = [];
+      // particles =[];
+      // newparticles =[];
+      // clear();
+     
    })
    
    $("#archive").click(function(){
