@@ -16,8 +16,8 @@ function randomNumber(min, max) {
 }
 
 function preload() {
-  // myFont = loadFont('/inboxpoems/type.otf');
-  myFont = loadFont('/type.otf');
+  myFont = loadFont('/inboxpoems/type.otf');
+  // myFont = loadFont('/type.otf');
   document.getElementById("mute").onclick=async ()=>{
       await Tone.start()
       console.log('audio is ready')
