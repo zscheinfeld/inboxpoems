@@ -10,9 +10,10 @@ function randomNumber(min, max) {
 }
 
 function preload() {
-    document.getElementById("button").onclick=async ()=>{
-        await Tone.start()
-        console.log('audio is ready')
+  myFont = loadFont('/type.otf');
+  document.getElementById("mute").onclick=async ()=>{
+    await Tone.start()
+    console.log('audio is ready')
 };
 
 synth = new Tone.PolySynth({
@@ -106,8 +107,8 @@ class Word {
         var pos = this.history[i];
         rect(pos.x, pos.y, 100, 25)
         textAlign(CENTER, CENTER);
-        textSize(16);
-        text(string, pos.x, pos.y); 
+        textSize(18);
+        text(string, pos.x, pos.y-2); 
       }
     } 
   }
@@ -189,6 +190,7 @@ class Word {
 }
 function setup() {
   var mycanvas = createCanvas(windowWidth, windowHeight);
+  textFont(myFont);
   mycanvas.position(0, 0);
   mycanvas.parent("canv");
   word1 = new Word(150,50, 100, 25, 1,1);
@@ -210,7 +212,7 @@ function draw() {
   rect(windowWidth/2, windowHeight/2, 370, 50)
         textAlign(CENTER, CENTER);
         textSize(64);
-        text("you have overdue items", windowWidth/2, windowHeight/2); 
+        text("you have overdue items", windowWidth/2, (windowHeight/2) - 10); 
   // 
   
   // var word3return = word3.move();
@@ -284,6 +286,28 @@ else{
 
 
 $( document ).ready(function() {
-    
+  var mutecounter = 0
+  $("#mute").click(function(){
+      // $(".menuitem").attr("src", "icon/purple/archive.png")
+      if (mutecounter%2 == 0){
+          $("#purpleicon").attr("src", "/icon/pink/mute.png");
+          synth.volume.value = -8;
+      }
+
+      else {
+          $("#purpleicon").attr("src", "/icon/pink/sound.png");
+          // vol.mute = false
+          synth.volume.value = -100;
+      }
+      mutecounter = mutecounter + 1
+  })
+
+  $("#trash").click(function(){
+   cyclecounter = 1;
+})
+
+$("#archive").click(function(){
+  saveCanvas('Overdue', 'jpg');
+})
 
 });
