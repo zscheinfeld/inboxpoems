@@ -10,7 +10,7 @@ function randomNumber(min, max) {
 }
 
 function preload() {
-  myFont = loadFont('/type.otf');
+  myFont = loadFont('/inboxpoems/type.otf');
   document.getElementById("mute").onclick=async ()=>{
     await Tone.start()
     console.log('audio is ready')
@@ -290,12 +290,12 @@ $( document ).ready(function() {
   $("#mute").click(function(){
       // $(".menuitem").attr("src", "icon/purple/archive.png")
       if (mutecounter%2 == 0){
-          $("#purpleicon").attr("src", "/icon/pink/mute.png");
+          $("#purpleicon").attr("src", "/inboxpoems/icon/pink/mute.png");
           synth.volume.value = -8;
       }
 
       else {
-          $("#purpleicon").attr("src", "/icon/pink/sound.png");
+          $("#purpleicon").attr("src", "/inboxpoems/icon/pink/sound.png");
           // vol.mute = false
           synth.volume.value = -100;
       }
