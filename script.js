@@ -88,7 +88,7 @@ var windowy =  $( window ).height()
     var animationswitch = 0
     var tonecounter = 0;
     var tonecounter2 = 0;
-    var lengtharray= [ "4n", "2n", "8n"]
+    var lengtharray= ["2n", "4n"]
 
     setInterval(() => {
         
@@ -130,8 +130,9 @@ var windowy =  $( window ).height()
                 })
             wordcounter = wordcounter + 1
             animationcounter = animationcounter + 1 
+            if(tonecounter%4==0){
             synth.triggerAttackRelease(notearray[randomNumber(0,notearray.length-1)], lengtharray[randomNumber(0,lengtharray.length-1)]);
-        
+            }
             
             }
         }
