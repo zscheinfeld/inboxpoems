@@ -222,7 +222,7 @@ a{
 
 .trashitem img{
   height: 35px;
-  
+  width: auto;
 }
 
 .menuitem img{
