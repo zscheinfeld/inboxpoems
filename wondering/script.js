@@ -10,7 +10,7 @@ function randomNumber(min, max) {
 
 $.getJSON("words.json", function(phrase) {
 
-document.getElementById("button").onclick=async ()=>{
+document.getElementById("mute").onclick=async ()=>{
         await Tone.start()
         console.log('audio is ready')
 };
@@ -180,6 +180,34 @@ var windowy =  $( window ).height()
     $('body').on('click', '.verb', function () { 
         $(".grid-container").children().removeClass("new")
         var arraylength = ywordpos.length
+        for (x= arraylength; x< arraylength + phrase[0].punctuation.length;x++){
+            xwordpos.push(randomNumber(0, windowx))
+            ywordpos.push(randomNumber(0, windowy))
+        }
+    
+        for (x= arraylength; x< arraylength + phrase[0].punctuation.length;x++){
+            var wordspot = x - arraylength
+
+            if(x%2==0){
+                $(".grid-container").append(
+                    `<div class="word new punctuation" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].punctuation[wordspot]}
+                    </div>`)
+            }
+
+            else{
+                $(".grid-container").append(
+                    `<div class="word new punctuation" style="position: absolute; top: ${ywordpos[x]}px;left: ${xwordpos[x]}px; animation-name: glide2; animation-duration: ${randomNumber(10,20)}s;">
+                    ${phrase[0].punctuation[wordspot]}
+                    </div>`)
+            }
+            
+        }
+    });
+
+    $('body').on('click', '.punctuation', function () { 
+        $(".grid-container").children().removeClass("new")
+        var arraylength = ywordpos.length
         for (x= arraylength; x< arraylength + phrase[0].question.length;x++){
             xwordpos.push(randomNumber((windowx/2) - 200, (windowx/2) + 200))
             ywordpos.push(randomNumber((windowy/2) - 200, (windowy/2) + 200))
@@ -280,7 +308,7 @@ var windowy =  $( window ).height()
 
     
 
-    $("#button").click(function(){
+    $("#trash").click(function(){
     
         $(".word").each(function(){
             if ($(this).hasClass("on") == false){
@@ -299,7 +327,7 @@ var windowy =  $( window ).height()
     setUpDownloadPageAsImage();
 
     function setUpDownloadPageAsImage() {
-    document.getElementById("camera").addEventListener("click", function() {
+    document.getElementById("archive").addEventListener("click", function() {
         html2canvas(document.body).then(function(canvas) {
         simulateDownloadImageClick(canvas.toDataURL(), 'wondering.png');
         });
@@ -327,8 +355,24 @@ var windowy =  $( window ).height()
     click(link);
     document.body.removeChild(link);
     }
-    
 
+    var mutecounter = 0
+    $("#mute").click(function(){
+        // $(".menuitem").attr("src", "icon/purple/archive.png")
+        if (mutecounter%2 == 0){
+            $("#purpleicon").attr("src", "/icon/blue/mute.png");
+            synth.volume.value = -8;
+        }
+
+        else {
+            $("#purpleicon").attr("src", "/icon/blue/sound.png");
+            // vol.mute = false
+            synth.volume.value = -100;
+        }
+        
+        mutecounter = mutecounter + 1
+    })
+    
 });
 
 

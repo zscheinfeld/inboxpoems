@@ -15,8 +15,10 @@ html { font-family: 'Inter', sans-serif; }
   cursor: pointer;
 }
 
+/* background-color: #A449FF; */
+
 body{
-  background-color: #A449FF;
+  
   cursor: pointer;
   overflow: hidden;
 }
@@ -27,22 +29,72 @@ body{
 
 .footer{
   position: fixed;
-  width: 50vw;
+  width: 100vw;
   justify-content: space-between;
   display: flex;
-  height: 45px;
+  height: 50px;
   top: 0px;
-  margin-bottom: 100px;
   font-size: 18px;
-  padding-top: 10px;
-  padding-left: 20px;
+  display: flex;
+  padding-top: 5px;
+}
+
+.bottomfooter{
+  position: fixed;
+  width: 100vw;
+  justify-content: space-between;
+  display: flex;
+  height: 50px;
+  bottom: 2px;
+  font-size: 18px;
+  display: flex;
+  padding-top: 5px;
+  z-index: 100;
+}
+
+.leftfooter{
+  width: 150px;
+  display: flex;
+  padding-left: 7px;
+  opacity: 100%;
+}
+
+.rightfooter{
+  width: 150px;
+  display: flex;
+  padding-right: 7px;
+  justify-content: right;
+}
+
+.menuitem{
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trashitem{
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trashitem img{
+  height: 35px;
+  
+}
+
+.menuitem img{
+ height: 30px;
+ width: auto;
 }
 
 .hairline{
     position: fixed;
-    top: 15px;
+    top: 0px;
     width: 98vw;
-    height: 20px;
+    height: 60px;
     border-bottom: solid 2px rgb(0, 0, 0);
     margin-left: 1vw;
 }
@@ -118,9 +170,14 @@ body{
 
 @keyframes glide2 {
   0% {
-    transform: translateY(0px);}
+    transform: translateY(0px);
+    opacity: 100%;}
+    95%{
+      opacity: 100%;
+    }
   100%{
     transform: translateY(-140vh ) rotateY(90deg) rotateZ(90deg) rotateX(90deg);
+    opacity: 0%;;
   }
   }
 
@@ -162,10 +219,7 @@ body{
   cursor: pointer;
 }
 
-.word:hover{
-  background-color: #f10852;
-  color: white;
-}
+
 
 .circlenav{
   position: fixed;
@@ -227,7 +281,7 @@ body{
 }
 
 .wondercontainer{
-  background-color: #A449FF;
+  background-color: rgb(255, 247, 0);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -258,6 +312,3 @@ body{
 }
 
 
-a{
-  text-decoration: none;
-}
