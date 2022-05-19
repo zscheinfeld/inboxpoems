@@ -203,3 +203,68 @@ body{
 a{
   text-decoration: none;
 }
+
+
+
+.footer{
+  position: fixed;
+  width: 100vw;
+  justify-content: space-between;
+  display: flex;
+  height: 50px;
+  top: 0px;
+  font-size: 18px;
+  display: flex;
+  padding-top: 5px;
+}
+
+.bottomfooter{
+  position: fixed;
+  width: 100vw;
+  justify-content: space-between;
+  display: flex;
+  height: 50px;
+  bottom: 2px;
+  font-size: 18px;
+  display: flex;
+  padding-top: 5px;
+  z-index: 100;
+}
+
+.leftfooter{
+  width: 150px;
+  display: flex;
+  padding-left: 7px;
+  opacity: 100%;
+}
+
+.rightfooter{
+  width: 150px;
+  display: flex;
+  padding-right: 7px;
+  justify-content: right;
+}
+
+.menuitem{
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trashitem{
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trashitem img{
+  height: 35px;
+  
+}
+
+.menuitem img{
+ height: 30px;
+ width: auto;
+}

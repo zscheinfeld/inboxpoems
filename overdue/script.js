@@ -1,6 +1,6 @@
 var chord;
 var synth;
-var wordsarray = ["return", "by", "Wednesday", "April", "21", "you", "may", "lose", "your", "ability", "to", "checkout", "items"]
+var wordsarray = ["you", "may", "lose", "your", "ability", "to", "checkout", "items"]
 var currentword = wordsarray[0]
 var wordcount = 0;
 var cyclecounter = 0;
@@ -206,7 +206,7 @@ function windowResized() {
 function draw() {
   
   rectMode(RADIUS);
-  background(255, 247, 0);
+  background(255,73,139);
   rect(windowWidth/2, windowHeight/2, 370, 50)
         textAlign(CENTER, CENTER);
         textSize(64);

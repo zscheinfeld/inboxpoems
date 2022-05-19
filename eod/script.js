@@ -91,6 +91,7 @@ function draw() {
   let level = 0;
   var xmiddle = windowWidth/2;
   var ymiddle = windowHeight/2;
+  // purple: background-color: #A449FF; 
   background(255,73,139);
   fill(255);
   rect(windowWidth/2, windowHeight/2, 200, 50)

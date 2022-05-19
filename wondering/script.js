@@ -360,12 +360,12 @@ var windowy =  $( window ).height()
     $("#mute").click(function(){
         // $(".menuitem").attr("src", "icon/purple/archive.png")
         if (mutecounter%2 == 0){
-            $("#purpleicon").attr("src", "/icon/blue/mute.png");
+            $("#purpleicon").attr("src", "/inboxpoems/icon/blue/mute.png");
             synth.volume.value = -8;
         }
 
         else {
-            $("#purpleicon").attr("src", "/icon/blue/sound.png");
+            $("#purpleicon").attr("src", "/inboxpoems/icon/blue/sound.png");
             // vol.mute = false
             synth.volume.value = -100;
         }

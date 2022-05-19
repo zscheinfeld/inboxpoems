@@ -68,6 +68,10 @@ var notearray = Tone.Frequency("B2").harmonize([0, 2, 5, 7, 9, 12]);
 
 $.getJSON("words.json", function(phrase) {
 
+//     document.getElementById("mute").onclick=async ()=>{
+//         await Tone.start()
+//         console.log('audio is ready')
+// };
     
 
 var windowx= $(window).width()
@@ -188,12 +192,12 @@ $(document).ready(function(){
     $("#mute").click(function(){
         // $(".menuitem").attr("src", "icon/purple/archive.png")
         if (mutecounter%2 == 0){
-            $("#purpleicon").attr("src", "icon/purple/mute.png");
+            $("#purpleicon").attr("src", "icon/yellow/mute.png");
             synth.volume.value = -8;
         }
 
         else {
-            $("#purpleicon").attr("src", "icon/purple/sound.png");
+            $("#purpleicon").attr("src", "icon/yellow/sound.png");
             // vol.mute = false
             synth.volume.value = -100;
         }
