@@ -16,6 +16,7 @@
         crossorigin="anonymous"></script>
         <script src="https://unpkg.com/rita"></script>
         <script src ="https://tonejs.github.io/build/Tone.js"></script>
+        <script src="/html2canvas.js"></script>
         <script src="script.js"></script>
         
     </head>
@@ -27,18 +28,57 @@
             <div class ="grid-container">
             </div>
         </div>
+        <!--  -->
+
         <div class = "footer">
-            <div class ="date">02/02/22</div>
-            <!-- <div class ="title"><i>looking forward to</i></div> -->
-            <a href="/inboxpoems/index.html">
-                <div class ="time">good morning</div>
-            </a>
-        
+            <div class = "leftfooter">
+                <div class="menuitem">
+                    <a href="/inboxpoems/overdue/index.html">
+                        <div>
+                            <img src="/inboxpoems/icon/green/left.png">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class = "rightfooter">
+                <!-- <div class = "trashitem">
+                    <img src="icon/purple/trash.png">
+                </div>
+                <div class = "menuitem">
+                    <img src="icon/purple/archive.png">
+                </div>  -->
+                <div class="menuitem">
+                    <a href="/inboxpoems/eod/index.html">
+                        <div>
+                            <img src="/inboxpoems/icon/green/right.png">
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
         </div>
-        <div class ="start" id ="button">start</div>
-        <a href="/inboxpoems/eod/index.html">
-            <div class ="nav">by the end of the day</div>
-        </a>
+        <div class = "bottomfooter">
+            <div class = "leftfooter">
+                <div class = "menuitem" id="archive">
+                    <img src="/inboxpoems/icon/green/archive.png">
+                </div> 
+                <div class = "trashitem" id="trash">
+                    <img src="/inboxpoems/icon/green/trash.png">
+                </div>
+                <div class = "menuitem">
+                    <a href="/inboxpoems/forwardto/index.html">
+                        <div>
+                            <img src="/inboxpoems/icon/arrow.png">
+                        </div>
+                    </a>
+                </div> 
+            </div>
+            <div class = "rightfooter">
+                <div class = "menuitem" id="mute">
+                    <img id="purpleicon" src="/inboxpoems/icon/green/sound.png">
+                </div> 
+            </div>
+        </div>
 
     </body>
 </html>

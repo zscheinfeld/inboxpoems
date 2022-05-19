@@ -97,21 +97,11 @@ h2, p {
   padding: 0;
 }
 
-.footer{
-  position: fixed;
-  width: 100vw;
-  justify-content: space-between;
-  display: flex;
-  height: 45px;
-  top: calc(100vh - 45px);
-  margin-bottom: 100px;
-  font-size: 14px;
-}
 
 .header{
   width: 100vw;
   height: 100vh;
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
   position: sticky;
   top: 0px;
   display: flex;
@@ -136,8 +126,8 @@ h2, p {
 
 .title{
   z-index: 5;
-  animation: pulse 30s infinite;
-  animation-direction: alternate;
+  /* animation: pulse 30s infinite;
+  animation-direction: alternate; */
   color: black;
   background-color: white;
   font-size: 64px;
@@ -177,4 +167,65 @@ a{
   text-decoration: none;
 }
 
+.footer{
+  position: fixed;
+  width: 100vw;
+  justify-content: space-between;
+  display: flex;
+  height: 50px;
+  top: 0px;
+  font-size: 18px;
+  display: flex;
+  padding-top: 5px;
+}
 
+.bottomfooter{
+  position: fixed;
+  width: 100vw;
+  justify-content: space-between;
+  display: flex;
+  height: 50px;
+  bottom: 2px;
+  font-size: 18px;
+  display: flex;
+  padding-top: 5px;
+  z-index: 100;
+}
+
+.leftfooter{
+  width: 150px;
+  display: flex;
+  padding-left: 7px;
+  opacity: 100%;
+}
+
+.rightfooter{
+  width: 150px;
+  display: flex;
+  padding-right: 7px;
+  justify-content: right;
+}
+
+.menuitem{
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trashitem{
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trashitem img{
+  height: 35px;
+  
+}
+
+.menuitem img{
+ height: 30px;
+ width: auto;
+}

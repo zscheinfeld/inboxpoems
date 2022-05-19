@@ -10,7 +10,7 @@ var cols;
 
 $.getJSON("words.json", function(phrase) {
 
-    document.getElementById("button").onclick=async ()=>{
+    document.getElementById("mute").onclick=async ()=>{
         // // await promiseExample();
         await Tone.start()
         console.log('audio is ready')
@@ -22,8 +22,9 @@ $.getJSON("words.json", function(phrase) {
 
 // //play a middle 'C' for the duration of an 8th note
 // synth.triggerAttackRelease("C4", "8n");
+// download image
 
-    
+
 
     
 
@@ -149,73 +150,130 @@ const synth = new Tone.PolySynth({
 
 
     $( document ).ready(function() {
-        $(".start").click(function(){
-            console.log("click")
-            var countswitch = 1;
-            var scalecounter = 0; 
-            var notearraycounter = 0;
-            var notearray = Tone.Frequency("D4").harmonize([0, 2, 5, 7, 9, 12]);
-            var intervalID;
-            // Function to call repeatedly 
-            function addText(){
-                
-                scalecounter = scalecounter + 1;
-                if (scalecounter == 8){
-                    scalecounter = 0;
-                    if (notearraycounter == 3){
-                        notearraycounter = 0
-                    }
-                    else{
-                        notearraycounter = notearraycounter + 1
-                    }
-                }  
-                counter = counter + 1;
-                console.log(counter)
-                if (counter > 63){
-                    $(".grid-container").empty();
-                    counter = 0
-                    stop();
-                    countswitch = countswitch * -1 
-                    if (countswitch == -1){
-                        start(1000);
-                    }
-                    else{
-                        start(50);
-                    }
-                    
+        var countswitch = 1;
+        var scalecounter = 0; 
+        var notearraycounter = 0;
+        var notearray = Tone.Frequency("D4").harmonize([0, 2, 5, 7, 9, 12]);
+        var intervalID;
+        // Function to call repeatedly 
+        function addText(){
+            
+            scalecounter = scalecounter + 1;
+            if (scalecounter == 8){
+                scalecounter = 0;
+                if (notearraycounter == 3){
+                    notearraycounter = 0
                 }
-                var num = randomNumber(0,timearray.length);
-                var num2 = randomNumber(0,datearray.length);
-                $(".grid-container").append(`<div class ="red" id="item${counter}">${rg.expand()}</div>`)
-                $(".time").html(timearray[num])
-                $(".date").html(datearray[num2])
-                // synth.triggerAttackRelease(`${notearraycounter[notearraycounter]}`, "8n");
-                synth.triggerAttackRelease(notearray[randomNumber(0,notearray.length)], "2n");
-            
-                setTimeout(() => {
-                    if (countswitch == -1){
-                        $(`#item${counter}`).removeClass("red")
-                        $(`#item${counter}`).addClass("grid-items")  
-                    }
-                  }, 930)   
+                else{
+                    notearraycounter = notearraycounter + 1
+                }
+            }  
+            counter = counter + 1;
+            console.log(counter)
+            if (counter > 63){
+                $(".grid-container").empty();
+                counter = 0
+                stop();
+                countswitch = countswitch * -1 
+                if (countswitch == -1){
+                    start(1000);
+                }
+                else{
+                    start(50);
+                }
+                
             }
-            
-            // Function to start setInterval call
-            function start(time){
-                intervalID = setInterval(addText, time);
-            }
+            var num = randomNumber(0,timearray.length);
+            var num2 = randomNumber(0,datearray.length);
+            $(".grid-container").append(`<div class ="red" id="item${counter}">${rg.expand()}</div>`)
+            $(".time").html(timearray[num])
+            $(".date").html(datearray[num2])
+            // synth.triggerAttackRelease(`${notearraycounter[notearraycounter]}`, "8n");
+            synth.triggerAttackRelease(notearray[randomNumber(0,notearray.length)], "2n");
+        
+            setTimeout(() => {
+                if (countswitch == -1){
+                    $(`#item${counter}`).removeClass("red")
+                    $(`#item${counter}`).addClass("grid-items")  
+                }
+              }, 930)   
+        }
+        
+        // Function to start setInterval call
+        function start(time){
+            intervalID = setInterval(addText, time);
+        }
 
-            start(50);
+        start(50);
+    
+        // Function to stop setInterval call
+        function stop(){
+            clearInterval(intervalID);
+        }
+    
+         
         
-            // Function to stop setInterval call
-            function stop(){
-                clearInterval(intervalID);
-            }
+        var mutecounter = 0
+        $("#mute").click(function(){
+              // $(".menuitem").attr("src", "icon/purple/archive.png")
+        if (mutecounter%2 == 0){
+            $("#purpleicon").attr("src", "/inboxpoems/icon/green/mute.png");
+            synth.volume.value = -8;
+        }
+
+        else {
+            $("#purpleicon").attr("src", "/inboxpoems/icon/green/sound.png");
+            // vol.mute = false
+            synth.volume.value = -100;
+        }
         
-             
+        mutecounter = mutecounter + 1
+
+           
 
 
             })
+
+            $(".trashitem").click(function(){
+                // $(".menuitem").attr("src", "icon/purple/archive.png")
+                console.log("hover")
+                $(".grid-container").empty();
+                counter = 0;
+            })
+
+
+            setUpDownloadPageAsImage();
+
+function setUpDownloadPageAsImage() {
+document.getElementById("archive").addEventListener("click", function() {
+    html2canvas(document.body).then(function(canvas) {
+    simulateDownloadImageClick(canvas.toDataURL(), 'forwardto.png');
+    });
+});
+}
+
+function simulateDownloadImageClick(uri, filename) {
+var link = document.createElement('a');
+if (typeof link.download !== 'string') {
+    window.open(uri);
+} else {
+    link.href = uri;
+    link.download = filename;
+    accountForFirefox(clickLink, link);
+}
+}
+
+function clickLink(link) {
+link.click();
+}
+
+function accountForFirefox(click) { // wrapper function
+let link = arguments[1];
+document.body.appendChild(link);
+click(link);
+document.body.removeChild(link);
+}
+
      
     });
 
